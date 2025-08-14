@@ -1,0 +1,227 @@
+/* ============================================================================
+   ANIMATIONS & KEYFRAMES
+   MotoGP Retro Theme - Studio Vroom Vroom
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CORE ANIMATIONS
+   ---------------------------------------------------------------------------- */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   GRADIENT & COLOR ANIMATIONS
+   ---------------------------------------------------------------------------- */
+@keyframes emailClick360 {
+  0% { --gradient-angle: 45deg; }
+  25% { --gradient-angle: 135deg; }
+  50% { --gradient-angle: 225deg; }
+  75% { --gradient-angle: 315deg; }
+  100% { --gradient-angle: 405deg; }
+}
+
+@keyframes elegantGlow {
+  0%,
+  100% {
+    box-shadow: 0 2px 20px var(--primary-orange-30),
+      0 0 40px var(--primary-orange-10);
+  }
+  50% {
+    box-shadow: 0 2px 30px var(--primary-orange-40),
+      0 0 60px rgba(255, 94, 77, 0.15);
+  }
+}
+
+@keyframes subtleShine {
+  0%,
+  100% {
+    background-position: -200% center;
+  }
+  50% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes gradientShine {
+  0% {
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      var(--primary-orange-30) 40%,
+      rgba(255, 255, 255, 0.9) 50%,
+      var(--primary-orange-30) 60%,
+      transparent 100%
+    );
+  }
+  25% {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--primary-orange-40) 40%,
+      rgba(255, 255, 255, 1) 50%,
+      var(--primary-orange-40) 60%,
+      transparent 100%
+    );
+  }
+  50% {
+    background: linear-gradient(
+      135deg,
+      transparent 0%,
+      rgba(255, 94, 77, 0.5) 40%,
+      rgba(255, 255, 255, 1) 50%,
+      rgba(255, 94, 77, 0.5) 60%,
+      transparent 100%
+    );
+  }
+  75% {
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      var(--primary-orange-40) 40%,
+      rgba(255, 255, 255, 0.9) 50%,
+      var(--primary-orange-40) 60%,
+      transparent 100%
+    );
+  }
+  100% {
+    background: linear-gradient(
+      225deg,
+      transparent 0%,
+      var(--primary-orange-30) 40%,
+      rgba(255, 255, 255, 0.8) 50%,
+      var(--primary-orange-30) 60%,
+      transparent 100%
+    );
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   SLIDE ANIMATIONS
+   ---------------------------------------------------------------------------- */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   SPECIAL EFFECTS
+   ---------------------------------------------------------------------------- */
+@keyframes digitalFlicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  98% {
+    opacity: 1;
+  }
+  99% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ----------------------------------------------------------------------------
+   UTILITY ANIMATION CLASSES
+   ---------------------------------------------------------------------------- */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-normal) ease-out;
+}
+
+.animate-slide-in-bottom {
+  animation: slideInBottom 1s ease-out;
+}
+
+.animate-elegant-glow {
+  animation: elegantGlow 3s ease-in-out infinite;
+}

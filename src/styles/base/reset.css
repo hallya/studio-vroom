@@ -1,0 +1,104 @@
+/* ============================================================================
+   GLOBAL RESETS & BASE STYLES
+   MotoGP Retro Theme - Studio Vroom Vroom
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   GLOBAL RESETS
+   ---------------------------------------------------------------------------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-family-system);
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: light dark;
+  color: var(--white-87);
+  background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+/* ----------------------------------------------------------------------------
+   BASE ELEMENT STYLES
+   ---------------------------------------------------------------------------- */
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+button {
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--dark-surface);
+  cursor: pointer;
+  transition: border-color var(--transition-normal);
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* ----------------------------------------------------------------------------
+   SELECTION STYLES
+   ---------------------------------------------------------------------------- */
+::selection {
+  background: var(--primary-orange-30);
+  color: var(--white);
+}
+
+::-moz-selection {
+  background: var(--primary-orange-30);
+  color: var(--white);
+}
+
+/* ----------------------------------------------------------------------------
+   SCROLLBAR STYLES
+   ---------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-orange-40);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-orange-60);
+}

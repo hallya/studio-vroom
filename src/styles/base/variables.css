@@ -1,0 +1,122 @@
+/* ============================================================================
+   CSS CUSTOM PROPERTIES & VARIABLES
+   MotoGP Retro Theme - Studio Vroom Vroom
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   CSS CUSTOM PROPERTIES (ANIMATABLE)
+   ---------------------------------------------------------------------------- */
+@property --icon-color-primary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(255, 255, 255, 0.6);
+}
+
+@property --icon-color-secondary {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: rgba(255, 255, 255, 0.4);
+}
+
+@property --icon-color-accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: transparent;
+}
+
+@property --gradient-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 135deg;
+}
+
+/* ----------------------------------------------------------------------------
+   ROOT VARIABLES
+   ---------------------------------------------------------------------------- */
+:root {
+  /* Typography */
+  --font-family-primary: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-family-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+  --font-family-system: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  /* MotoGP Theme Colors */
+  --primary-orange: rgba(255, 94, 77, 1);
+  --primary-orange-80: rgba(255, 94, 77, 0.8);
+  --primary-orange-60: rgba(255, 94, 77, 0.6);
+  --primary-orange-40: rgba(255, 94, 77, 0.4);
+  --primary-orange-30: rgba(255, 94, 77, 0.3);
+  --primary-orange-20: rgba(255, 94, 77, 0.2);
+  --primary-orange-10: rgba(255, 94, 77, 0.1);
+  
+  --secondary-orange: rgba(255, 138, 80, 1);
+  --secondary-orange-60: rgba(255, 138, 80, 0.6);
+  --secondary-orange-30: rgba(255, 138, 80, 0.3);
+  --secondary-orange-05: rgba(255, 138, 80, 0.05);
+  
+  --success-green: rgba(76, 175, 80, 1);
+  --success-green-90: rgba(76, 175, 80, 0.9);
+  --success-green-80: rgba(76, 175, 80, 0.8);
+  --success-green-70: rgba(76, 175, 80, 0.7);
+  --success-green-60: rgba(76, 175, 80, 0.6);
+  --success-green-50: rgba(76, 175, 80, 0.5);
+  --success-green-40: rgba(76, 175, 80, 0.4);
+  --success-green-30: rgba(76, 175, 80, 0.3);
+  
+  --white: rgba(255, 255, 255, 1);
+  --white-95: rgba(255, 255, 255, 0.95);
+  --white-90: rgba(255, 255, 255, 0.9);
+  --white-87: rgba(255, 255, 255, 0.87);
+  --white-60: rgba(255, 255, 255, 0.6);
+  --white-40: rgba(255, 255, 255, 0.4);
+  --white-20: rgba(255, 255, 255, 0.2);
+  --white-10: rgba(255, 255, 255, 0.1);
+  --white-05: rgba(255, 255, 255, 0.05);
+  
+  /* Dark Theme Colors */
+  --dark-26: rgba(26, 26, 26, 0.95);
+  --dark-38: rgba(38, 38, 38, 0.95);
+  --dark-22: rgba(22, 22, 22, 0.95);
+  --dark-34: rgba(34, 34, 34, 0.95);
+  --dark-background: #242424;
+  --dark-surface: #1a1a1a;
+  
+  /* Accent Colors */
+  --blue-primary: rgba(59, 130, 246, 1);
+  --blue-60: rgba(59, 130, 246, 0.6);
+  --blue-40: rgba(59, 130, 246, 0.4);
+  --blue-30: rgba(59, 130, 246, 0.3);
+  --blue-20: rgba(59, 130, 246, 0.2);
+  
+  --purple-primary: rgba(79, 70, 229, 1);
+  --purple-80: rgba(79, 70, 229, 0.8);
+  --purple-60: rgba(79, 70, 229, 0.6);
+  --purple-40: rgba(79, 70, 229, 0.4);
+  --purple-30: rgba(79, 70, 229, 0.3);
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 8px 32px rgba(0, 0, 0, 0.4);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.4s ease;
+  --transition-bounce: 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

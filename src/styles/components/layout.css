@@ -1,0 +1,250 @@
+/* ============================================================================
+   LAYOUT COMPONENTS
+   MotoGP Retro Theme - Studio Vroom Vroom
+   ============================================================================ */
+
+/* ----------------------------------------------------------------------------
+   MAIN LAYOUT
+   ---------------------------------------------------------------------------- */
+.helmet-configurator {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas-3d {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ----------------------------------------------------------------------------
+   CONTROL PANELS
+   ---------------------------------------------------------------------------- */
+.main-control-panel {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: var(--spacing-lg);
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-2xl);
+  padding: var(--spacing-lg);
+  max-width: 280px;
+}
+
+.main-title-section {
+  margin-bottom: var(--spacing-xl);
+  text-align: left;
+}
+
+.brand-header {
+  position: relative;
+  padding: var(--spacing-md) 0;
+}
+
+.main-title {
+  margin: 0 0 var(--spacing-sm) 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  line-height: 1.2;
+  animation: slideInLeft 1.2s ease-out;
+}
+
+.main-tagline {
+  margin: 0 0 var(--spacing-xs) 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary-orange);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  animation: slideInLeft 1.4s ease-out;
+}
+
+.main-description {
+  margin: 0;
+  font-size: 13px;
+  color: var(--white-60);
+  font-weight: 400;
+  line-height: 1.4;
+  font-style: italic;
+  animation: slideInLeft 1.6s ease-out;
+}
+
+/* ----------------------------------------------------------------------------
+   CONTROL SECTIONS
+   ---------------------------------------------------------------------------- */
+.control-section {
+  margin-bottom: var(--spacing-lg);
+}
+
+.control-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white-90);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ----------------------------------------------------------------------------
+   INFO PANEL
+   ---------------------------------------------------------------------------- */
+.info-panel-container {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  right: var(--spacing-lg);
+  z-index: 1000;
+  color: var(--white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-xl);
+  max-width: 280px;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  background: transparent;
+  transition: all var(--transition-slow) ease;
+  overflow: hidden;
+}
+
+.info-panel-container:hover {
+  background: linear-gradient(
+    135deg,
+    var(--dark-22) 0%,
+    var(--dark-34) 50%,
+    var(--dark-22) 100%
+  );
+  border: 1px solid var(--secondary-orange-30);
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-xl), inset 0 1px 0 var(--white-10);
+}
+
+.info-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform var(--transition-slow) ease,
+    opacity var(--transition-slow) ease;
+  white-space: nowrap;
+}
+
+.info-header {
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  gap: var(--spacing-md);
+  opacity: 0;
+  transition: opacity var(--transition-slow) ease;
+}
+
+.info-panel-container:hover .info-header {
+  opacity: 1;
+  animation: 0.2s linear;
+}
+
+.info-panel-container:hover .info-title {
+  opacity: 1;
+  transform: translateX(0);
+  animation: 0.2s linear;
+}
+
+.info-divider {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    var(--primary-orange-60),
+    transparent
+  );
+  margin: 0;
+  opacity: 0;
+  transition: opacity var(--transition-slow) ease;
+}
+
+.info-panel-container:hover .info-divider {
+  opacity: 1;
+  animation: 0.2s linear;
+}
+
+/* ----------------------------------------------------------------------------
+   LOADING COMPONENTS
+   ---------------------------------------------------------------------------- */
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--white-20);
+  border-top: 4px solid var(--primary-orange);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* ----------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   ---------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .main-control-panel {
+    position: relative;
+    top: auto;
+    left: auto;
+    max-width: none;
+    margin: var(--spacing-md);
+  }
+
+  .info-panel-container {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin: var(--spacing-md);
+    max-width: none;
+  }
+
+  .helmet-configurator {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-control-panel,
+  .info-panel-container {
+    margin: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+
+  .main-title {
+    font-size: 24px;
+  }
+
+  .info-panel-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .info-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--primary-orange-60),
+      transparent
+    );
+  }
+}
