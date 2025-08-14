@@ -8,7 +8,7 @@ import { HELMETS } from "../constants/helmets";
 import HelmetModel from "./3d/HelmetModel";
 import LoadingSpinner from "./ui/LoadingSpinner";
 import ModelSelector from "./ui/ModelSelector";
-import ColorPicker from "./ui/ColorPicker";
+
 import InfoPanel from "./ui/InfoPanel";
 
 import { getBackgroundStyle } from "../utils/styles";
@@ -17,15 +17,10 @@ import { useResponsiveControls } from "../hooks/useResponsiveControls";
 
 export default function HelmetConfigurator() {
   const [selectedHelmet, setSelectedHelmet] = useState<Helmet>(HELMETS[0]);
-  const [customColor, setCustomColor] = useState<string>("#DC143C");
   const [backgroundMode] = useState<BackgroundMode>("workshop");
   const controlsConfig = useResponsiveControls();
 
-  useEffect(() => {
-    if (selectedHelmet.color) {
-      setCustomColor(selectedHelmet.color);
-    }
-  }, [selectedHelmet]);
+
 
   useEffect(() => {
     preloadHelmetModels();
@@ -83,9 +78,6 @@ export default function HelmetConfigurator() {
           <HelmetModel
             helmet={selectedHelmet}
             animationEnabled={false}
-            customColor={customColor}
-            metalness={0.2}
-            roughness={0.4}
           />
         </Suspense>
       </Canvas>
@@ -106,7 +98,7 @@ export default function HelmetConfigurator() {
           onHelmetChange={setSelectedHelmet}
         />
 
-        <ColorPicker customColor={customColor} onColorChange={setCustomColor} />
+
       </div>
 
       <InfoPanel />

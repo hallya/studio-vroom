@@ -3,7 +3,6 @@ export type { HelmetModelProps } from "./components/helmet-model";
 export type { IconProps } from "./components/icons";
 export type {
   ModelSelectorProps,
-  ColorPickerProps,
   InfoPanelProps,
 } from "./ui/controls";
 export type { ResponsiveControlsConfig } from "./hooks";

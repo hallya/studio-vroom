@@ -7,9 +7,6 @@ import type { HelmetModelProps } from "../../types";
 export default function HelmetModel({
   helmet,
   animationEnabled,
-  customColor,
-  metalness,
-  roughness,
 }: HelmetModelProps) {
   const groupRef = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF(helmet.modelPath);
@@ -17,33 +14,6 @@ export default function HelmetModel({
 
   // Clone to avoid conflicts with multiple instances
   const clonedScene = scene.clone();
-
-  useEffect(() => {
-    clonedScene.traverse((child) => {
-      if (child instanceof THREE.Mesh) {
-        const mesh = child as THREE.Mesh;
-        if (mesh.material) {
-          if (Array.isArray(mesh.material)) {
-            mesh.material.forEach((material) => {
-              if (material instanceof THREE.MeshStandardMaterial) {
-                material.color.setHex(
-                  parseInt(customColor.replace("#", ""), 16)
-                );
-                material.metalness = metalness;
-                material.roughness = roughness;
-              }
-            });
-          } else if (mesh.material instanceof THREE.MeshStandardMaterial) {
-            mesh.material.color.setHex(
-              parseInt(customColor.replace("#", ""), 16)
-            );
-            mesh.material.metalness = metalness;
-            mesh.material.roughness = roughness;
-          }
-        }
-      }
-    });
-  }, [customColor, metalness, roughness, clonedScene]);
 
   useEffect(() => {
     if (animationEnabled && names.length > 0) {

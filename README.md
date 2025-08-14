@@ -178,21 +178,7 @@ export const HELMETS: Helmet[] = [
 
 ### Customizing Colors
 
-Update the retro color palette in `src/constants/helmets.ts`:
-
-```typescript
-export const COLOR_PALETTE = [
-  "#DC143C", // Crimson red (Ferrari, Ducati style)
-  "#FFD700", // Gold yellow (Yamaha Kenny Roberts)  
-  "#1E90FF", // Dodger blue (Suzuki classic)
-  "#800080", // Deep purple (Honda NSR inspiration)
-  "#FF6347", // Tomato red (Aprilia style)
-  "#32CD32", // Lime green (Kawasaki classic)
-  "#FF1493", // Deep pink (Racing liveries)
-  "#000000", // Classic black
-  // Add your authentic racing colors
-];
-```
+The color picker allows users to select custom colors for the helmet visualization using a standard HTML color input.
 
 ### Camera Configuration
 
