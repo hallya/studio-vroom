@@ -11,7 +11,7 @@ export default function ContactIcons() {
 
       setTimeout(() => {
         setIsEmailCopying(false);
-      }, 600);
+      }, 300);
     } catch (err) {
       console.error("Failed to copy email:", err);
     }

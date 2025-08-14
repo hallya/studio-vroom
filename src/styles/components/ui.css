@@ -97,13 +97,17 @@
 
 .contact-icon.copying {
   --icon-color-primary: var(--white);
-  --icon-color-secondary: var(--success-green-80);
-  --icon-color-accent: var(--primary-orange-20);
+  --icon-color-secondary: var(--success-green);
+  --icon-color-accent: var(--success-green-30);
   --gradient-angle: 45deg;
 
-  border-color: var(--primary-orange-60);
-  box-shadow: 0 4px 20px var(--success-green-40);
-  animation: emailClick360 var(--transition-bounce);
+  border-color: var(--success-green);
+  box-shadow: 0 4px 20px var(--success-green-60);
+  animation: emailClick360 0.3s ease-out;
+}
+
+.contact-icon.copying svg {
+  animation: iconShrink 0.3s ease-out;
 }
 
 
