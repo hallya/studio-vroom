@@ -13,7 +13,7 @@ export default function HelmetModel({
   const { scene, animations } = useGLTF(helmet.modelPath);
   const { actions, names } = useAnimations(animations, groupRef);
 
-  // Clone to avoid conflicts with multiple instances
+
   const clonedScene = scene.clone();
 
   useEffect(() => {
@@ -35,7 +35,7 @@ export default function HelmetModel({
     }
   }, [animationEnabled, actions, names]);
 
-  // Rotation automatique - s'arrête lors de l'interaction utilisateur
+
   useFrame(() => {
     if (groupRef.current && animationEnabled && !isUserInteracting) {
       groupRef.current.rotation.y += 0.005;

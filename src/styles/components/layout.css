@@ -1,11 +1,4 @@
-/* ============================================================================
-   LAYOUT COMPONENTS
-   MotoGP Retro Theme - Studio Vroom Vroom
-   ============================================================================ */
 
-/* ----------------------------------------------------------------------------
-   MAIN LAYOUT
-   ---------------------------------------------------------------------------- */
 .helmet-configurator {
   width: 100%;
   height: 100vh;
@@ -20,9 +13,7 @@
   overflow: hidden;
 }
 
-/* ----------------------------------------------------------------------------
-   CONTROL PANELS
-   ---------------------------------------------------------------------------- */
+
 .main-control-panel {
   position: absolute;
   bottom: var(--spacing-lg);
@@ -75,9 +66,7 @@
   animation: slideInLeft 1.6s ease-out;
 }
 
-/* ----------------------------------------------------------------------------
-   CONTROL SECTIONS
-   ---------------------------------------------------------------------------- */
+
 .control-section {
   margin-bottom: var(--spacing-lg);
 }
@@ -92,9 +81,7 @@
   letter-spacing: 1px;
 }
 
-/* ----------------------------------------------------------------------------
-   INFO PANEL
-   ---------------------------------------------------------------------------- */
+
 .info-panel-container {
   position: absolute;
   bottom: var(--spacing-lg);
@@ -176,9 +163,7 @@
   animation: 0.2s linear;
 }
 
-/* ----------------------------------------------------------------------------
-   LOADING COMPONENTS
-   ---------------------------------------------------------------------------- */
+
 .loading-spinner {
   position: absolute;
   top: 50%;
@@ -196,9 +181,7 @@
   animation: spin 1s linear infinite;
 }
 
-/* ----------------------------------------------------------------------------
-   RESPONSIVE DESIGN
-   ---------------------------------------------------------------------------- */
+
 @media (max-width: 768px) {
   .main-control-panel {
     position: relative;
@@ -249,11 +232,7 @@
   }
 }
 
-/* ============================================================================
-   MOBILE RESPONSIVE DESIGN
-   ============================================================================ */
 
-/* Tablet (Portrait) */
 @media (max-width: 768px) {
   .main-control-panel {
     position: fixed;
@@ -282,7 +261,7 @@
     text-align: center;
   }
 
-  /* Contact icons remain fixed top-right */
+
 }
 
 /* Mobile (Portrait) */
@@ -380,7 +359,7 @@
     padding: var(--spacing-sm);
   }
 
-  /* Contact icons remain fixed top-right */
+
 
   .main-title {
     font-size: 18px;

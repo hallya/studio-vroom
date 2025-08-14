@@ -25,14 +25,14 @@ export default function HelmetConfigurator() {
     preloadHelmetModels();
   }, []);
 
-  // Timer pour reprendre l'animation après 10 secondes d'inactivité
+
   useEffect(() => {
     let timer: number;
     
     if (isUserInteracting) {
       timer = window.setTimeout(() => {
         setIsUserInteracting(false);
-      }, 5000); // 10 secondes
+              }, 5000);
     }
     
     return () => {
