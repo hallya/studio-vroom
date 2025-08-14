@@ -1,0 +1,21 @@
+{
+  "name": "Studio Vroom Vroom - Custom Helmet Designs",
+  "short_name": "Studio Vroom",
+  "description": "Art on helmet - Custom motorcycle helmet creations with elegant retro MotoGP style",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#DC143C",
+  "orientation": "any",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["design", "automotive", "art", "portfolio", "showcase"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

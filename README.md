@@ -1,6 +1,6 @@
-# 🏍️ Studio Vroom Vroom - 3D Helmet Configurator
+# 🏍️ Studio Vroom Vroom - Art on Helmet
 
-An interactive 3D motorcycle helmet configurator with an elegant retro MotoGP aesthetic. Built with React Three Fiber for professional 3D visualization and smooth user interactions.
+Showcase website featuring Studio Vroom Vroom's custom motorcycle helmet creations. An immersive 3D experience with elegant retro MotoGP style to discover our racing-dedicated designs.
 
 **🚀 Live Demo**: [https://studio-vroom.vercel.app/](https://studio-vroom.vercel.app/)  
 **📁 Repository**: [https://github.com/hallya/studio-vroom](https://github.com/hallya/studio-vroom)
@@ -20,11 +20,11 @@ An interactive 3D motorcycle helmet configurator with an elegant retro MotoGP ae
 - Smooth animations and transitions
 
 ### 🎮 **Interactive Features**
-- Intuitive OrbitControls for helmet manipulation
-- Real-time color customization
-- Contact panel with gradient animations
-- Clipboard integration for email copying
-- Instagram link integration
+- Intuitive OrbitControls for helmet visualization
+- Navigation between different helmet models
+- Preview of creations with signature colors
+- Contact panel with elegant animations
+- Email and Instagram integration for orders
 
 ### ⚡ **Performance & Architecture**
 - Lazy loading with React Suspense
@@ -139,23 +139,24 @@ public/
 - **Mouse Wheel**: Zoom in/out with momentum
 - **Responsive Controls**: Optimized for both desktop and mobile
 
-### 🎨 **Customization**
-- **Model Selector**: Choose between different helmet types
-- **Retro Color Palette**: Authentic MotoGP racing colors from legendary eras:
+### 🎨 **Creative Portfolio**
+- **Model Gallery**: Discover our different helmet creations
+- **Retro MotoGP Palette**: Authentic colors inspired by legends:
   - Crimson Red (Ferrari/Ducati style)
   - Gold Yellow (Yamaha Kenny Roberts)
   - Dodger Blue (Suzuki classic)
   - Deep Purple (Honda NSR inspiration)
-  - And more authentic racing colors...
+  - And many more authentic racing colors...
 
-### 📞 **Contact & Social**
+### 📞 **Contact & Orders**
 - **Email Icon**: Click to copy `martin@studiovroom.fr`
-  - Animated icon swap to copy indicator
-  - Gradient animation on hover
-  - Nervous 360° rotation on click
+  - Icon animation when copying
+  - Gradient effect on hover
+  - Dynamic 360° rotation on click
 - **Instagram Icon**: Direct link to [@studio.vroom](https://www.instagram.com/studio.vroom/)
-  - Hover animations with color transitions
+  - Color animations on hover
   - Smooth gradient effects
+  - Gallery of our latest creations
 
 ## 🔧 Configuration
 
