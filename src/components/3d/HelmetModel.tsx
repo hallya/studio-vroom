@@ -76,7 +76,7 @@ export default function HelmetModel({
       <primitive
         object={clonedScene}
         scale={helmet.scale || [1.5, 1.5, 1.5]}
-        position={[0, -0.5, 0]}
+        position={[0, 0, 0]}
         rotation={[0, Math.PI, 0]}
       />
     </group>

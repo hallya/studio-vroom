@@ -73,6 +73,9 @@
   grid-template-columns: repeat(6, 1fr);
   gap: var(--spacing-sm);
   margin-top: 12px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .color-button {
@@ -109,16 +112,19 @@
 }
 
 .contact-icons-only {
-  position: absolute;
-  bottom: var(--spacing-lg);
-  right: var(--spacing-lg);
-  z-index: 1000;
+  position: fixed;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 1001;
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
   gap: var(--spacing-sm);
-  padding: 0;
+  padding: var(--spacing-xs);
   margin: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: var(--radius-lg);
 }
 
 .contact-icon {
@@ -211,4 +217,78 @@
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+/* ============================================================================
+   MOBILE TOUCH OPTIMIZATION
+   ============================================================================ */
+
+/* Touch-friendly buttons */
+@media (max-width: 768px) {
+  .contact-icon {
+    width: 44px;
+    height: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .color-button {
+    min-width: 44px;
+    min-height: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .model-select {
+    min-height: 44px;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+
+  /* Smooth scrolling for control panel */
+  .main-control-panel {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+
+  /* Prevent text selection on interactive elements */
+  .contact-icon,
+  .color-button,
+  .model-select {
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Improve focus states for accessibility */
+  .contact-icon:focus,
+  .color-button:focus,
+  .model-select:focus {
+    outline: 2px solid var(--primary-orange);
+    outline-offset: 2px;
+  }
+}
+
+/* Ultra-mobile (very small screens) */
+@media (max-width: 360px) {
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .color-button {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  .model-select {
+    font-size: 12px;
+    padding: var(--spacing-xs);
+  }
 }

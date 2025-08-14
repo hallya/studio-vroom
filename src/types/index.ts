@@ -6,3 +6,4 @@ export type {
   ColorPickerProps,
   InfoPanelProps,
 } from "./ui/controls";
+export type { ResponsiveControlsConfig } from "./hooks";

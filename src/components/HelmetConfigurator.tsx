@@ -13,11 +13,13 @@ import InfoPanel from "./ui/InfoPanel";
 
 import { getBackgroundStyle } from "../utils/styles";
 import { preloadHelmetModels } from "../utils/preloader";
+import { useResponsiveControls } from "../hooks/useResponsiveControls";
 
 export default function HelmetConfigurator() {
   const [selectedHelmet, setSelectedHelmet] = useState<Helmet>(HELMETS[0]);
   const [customColor, setCustomColor] = useState<string>("#DC143C");
   const [backgroundMode] = useState<BackgroundMode>("workshop");
+  const controlsConfig = useResponsiveControls();
 
   useEffect(() => {
     if (selectedHelmet.color) {
@@ -30,7 +32,10 @@ export default function HelmetConfigurator() {
   }, []);
 
   return (
-    <div className="helmet-configurator" style={getBackgroundStyle(backgroundMode)}>
+    <div
+      className="helmet-configurator"
+      style={getBackgroundStyle(backgroundMode)}
+    >
       <Canvas
         camera={{
           position: [1, 0, 3],
@@ -62,13 +67,16 @@ export default function HelmetConfigurator() {
         />
 
         <OrbitControls
-          enablePan={false}
-          enableZoom={true}
-          enableRotate={true}
-          minDistance={1.5}
-          maxDistance={4}
+          enablePan={controlsConfig.enablePan}
+          enableZoom={controlsConfig.enableZoom}
+          enableRotate={controlsConfig.enableRotate}
+          minDistance={controlsConfig.minDistance}
+          maxDistance={controlsConfig.maxDistance}
           enableDamping={true}
-          dampingFactor={0.05}
+          dampingFactor={controlsConfig.dampingFactor}
+          rotateSpeed={controlsConfig.rotateSpeed}
+          zoomSpeed={controlsConfig.zoomSpeed}
+          touches={{ ONE: 0, TWO: 2 }}
         />
 
         <Suspense fallback={<LoadingSpinner />}>
@@ -85,11 +93,11 @@ export default function HelmetConfigurator() {
       <div className="main-control-panel elegant-panel">
         <div className="main-title-section">
           <div className="brand-header">
-            <h1 className="main-title motogp-title">
-              Studio Vroom
-            </h1>
+            <h1 className="main-title motogp-title">Studio Vroom</h1>
             <p className="main-tagline elegant-font">Art on helmet</p>
-            <p className="main-description elegant-font">Designs dedicated to racing</p>
+            <p className="main-description elegant-font">
+              Designs dedicated to racing
+            </p>
           </div>
         </div>
 
@@ -98,10 +106,7 @@ export default function HelmetConfigurator() {
           onHelmetChange={setSelectedHelmet}
         />
 
-        <ColorPicker
-          customColor={customColor}
-          onColorChange={setCustomColor}
-        />
+        <ColorPicker customColor={customColor} onColorChange={setCustomColor} />
       </div>
 
       <InfoPanel />
