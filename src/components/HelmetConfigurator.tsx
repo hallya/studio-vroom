@@ -25,16 +25,15 @@ export default function HelmetConfigurator() {
     preloadHelmetModels();
   }, []);
 
-
   useEffect(() => {
     let timer: number;
-    
+
     if (isUserInteracting) {
       timer = window.setTimeout(() => {
         setIsUserInteracting(false);
-              }, 5000);
+      }, 5000);
     }
-    
+
     return () => {
       if (timer) {
         window.clearTimeout(timer);
@@ -93,29 +92,31 @@ export default function HelmetConfigurator() {
         />
 
         <Suspense fallback={<LoadingSpinner />}>
-          <HelmetModel 
-            helmet={selectedHelmet} 
+          <HelmetModel
+            helmet={selectedHelmet}
             animationEnabled={true}
-            isUserInteracting={isUserInteracting} 
+            isUserInteracting={isUserInteracting}
           />
         </Suspense>
       </Canvas>
 
-      <div className="main-control-panel elegant-panel">
-        <div className="main-title-section">
-          <div className="brand-header">
-            <h1 className="main-title motogp-title">Studio Vroom</h1>
-            <p className="main-tagline elegant-font">Art on helmet</p>
-            <p className="main-description elegant-font">
-              Designs dedicated to racing
-            </p>
-          </div>
-        </div>
-
+      <div className="controls-container">
         <ModelSelector
           selectedHelmet={selectedHelmet}
           onHelmetChange={setSelectedHelmet}
         />
+
+        <div className="main-control-panel elegant-panel">
+          <div className="main-title-section">
+            <div className="brand-header">
+              <h1 className="main-title motogp-title">Studio Vroom</h1>
+              <p className="main-tagline elegant-font">Art on helmet</p>
+              <p className="main-description elegant-font">
+                Designs dedicated to racing
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
 
       <InfoPanel />

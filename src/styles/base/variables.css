@@ -108,6 +108,12 @@
   --radius-xl: 16px;
   --radius-2xl: 20px;
   
+  --radius-top-sm: 6px 6px 0 0;
+  --radius-top-md: 8px 8px 0 0;
+  --radius-top-lg: 12px 12px 0 0;
+  --radius-top-xl: 16px 16px 0 0;
+  --radius-top-2xl: 20px 20px 0 0;
+  
   /* Shadows */
   --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.2);
