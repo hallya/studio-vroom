@@ -3,7 +3,7 @@ import type { Helmet } from "../types";
 export const HELMETS: Helmet[] = [
   {
     id: "racing-a",
-    name: "Racing Helmet A",
+    name: "Strive Abdullah SB 16",
     modelPath: "/models/model-a.glb",
     scale: [2.0, 2.0, 2.0],
     position: [0, -0.3, 0],
