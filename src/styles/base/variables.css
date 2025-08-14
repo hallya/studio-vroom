@@ -100,6 +100,13 @@
   --spacing-lg: 24px;
   --spacing-xl: 32px;
   --spacing-2xl: 48px;
+  --spacing-right-xs: 0 4px 0 0;
+  --spacing-right-sm: 0 8px 0 0;
+  --spacing-right-md: 0 16px 0 0;
+  --spacing-right-lg: 0 24px 0 0;
+  --spacing-right-xl: 0 32px 0 0;
+  --spacing-right-2xl: 0 48px 0 0;
+
   
   /* Border Radius */
   --radius-sm: 6px;
