@@ -7,6 +7,3 @@ export interface ModelSelectorProps {
 
 
 
-export interface InfoPanelProps {
-  selectedHelmet: Helmet;
-}

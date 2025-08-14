@@ -32,7 +32,6 @@
 
 .brand-header {
   position: relative;
-  padding: var(--spacing-md) 0;
 }
 
 .main-title {
@@ -64,11 +63,6 @@
   line-height: 1.4;
   font-style: italic;
   animation: slideInLeft 1.6s ease-out;
-}
-
-
-.control-section {
-  margin-bottom: var(--spacing-lg);
 }
 
 .control-label {
@@ -352,7 +346,6 @@
   .main-control-panel {
     position: static;
     width: 35%;
-    height: 100vh;
     max-width: none;
     border-radius: 0;
     overflow-y: auto;
