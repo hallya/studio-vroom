@@ -6,12 +6,14 @@ export const HELMETS: Helmet[] = [
     name: "Racing Helmet A",
     modelPath: "/models/model-a.glb",
     color: "#DC143C",
+    scale: [2.0, 2.0, 2.0],
   },
   {
-    id: "racing-b",
+    id: "racing-b", 
     name: "Racing Helmet B",
     modelPath: "/models/model-b.glb",
     color: "#1E90FF",
+    scale: [0.2, 0.2, 0.2],
   },
 ];
 

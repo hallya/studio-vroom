@@ -3,6 +3,7 @@ export interface Helmet {
   name: string;
   modelPath: string;
   color?: string;
+  scale?: [number, number, number];
 }
 
 export type BackgroundMode = "studio" | "transparent" | "workshop";
