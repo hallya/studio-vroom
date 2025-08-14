@@ -18,13 +18,29 @@ import { useResponsiveControls } from "../hooks/useResponsiveControls";
 export default function HelmetConfigurator() {
   const [selectedHelmet, setSelectedHelmet] = useState<Helmet>(HELMETS[0]);
   const [backgroundMode] = useState<BackgroundMode>("workshop");
+  const [isUserInteracting, setIsUserInteracting] = useState<boolean>(false);
   const controlsConfig = useResponsiveControls();
-
-
 
   useEffect(() => {
     preloadHelmetModels();
   }, []);
+
+  // Timer pour reprendre l'animation après 10 secondes d'inactivité
+  useEffect(() => {
+    let timer: number;
+    
+    if (isUserInteracting) {
+      timer = window.setTimeout(() => {
+        setIsUserInteracting(false);
+      }, 5000); // 10 secondes
+    }
+    
+    return () => {
+      if (timer) {
+        window.clearTimeout(timer);
+      }
+    };
+  }, [isUserInteracting]);
 
   return (
     <div
@@ -72,12 +88,15 @@ export default function HelmetConfigurator() {
           rotateSpeed={controlsConfig.rotateSpeed}
           zoomSpeed={controlsConfig.zoomSpeed}
           touches={{ ONE: 0, TWO: 2 }}
+          onStart={() => setIsUserInteracting(true)}
+          onChange={() => setIsUserInteracting(true)}
         />
 
         <Suspense fallback={<LoadingSpinner />}>
-          <HelmetModel
-            helmet={selectedHelmet}
-            animationEnabled={false}
+          <HelmetModel 
+            helmet={selectedHelmet} 
+            animationEnabled={true}
+            isUserInteracting={isUserInteracting} 
           />
         </Suspense>
       </Canvas>
@@ -97,8 +116,6 @@ export default function HelmetConfigurator() {
           selectedHelmet={selectedHelmet}
           onHelmetChange={setSelectedHelmet}
         />
-
-
       </div>
 
       <InfoPanel />

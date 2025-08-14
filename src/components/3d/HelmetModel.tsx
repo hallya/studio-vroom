@@ -7,6 +7,7 @@ import type { HelmetModelProps } from "../../types";
 export default function HelmetModel({
   helmet,
   animationEnabled,
+  isUserInteracting = false,
 }: HelmetModelProps) {
   const groupRef = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF(helmet.modelPath);
@@ -34,9 +35,9 @@ export default function HelmetModel({
     }
   }, [animationEnabled, actions, names]);
 
-  // Fallback rotation when no animations available
+  // Rotation automatique - s'arrête lors de l'interaction utilisateur
   useFrame(() => {
-    if (groupRef.current && !animationEnabled && names.length === 0) {
+    if (groupRef.current && animationEnabled && !isUserInteracting) {
       groupRef.current.rotation.y += 0.005;
     }
   });
