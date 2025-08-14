@@ -2,10 +2,16 @@ import type { Helmet } from "../types";
 
 export const HELMETS: Helmet[] = [
   {
-    id: "racing",
-    name: "Racing Helmet",
-    modelPath: "/models/motorcycle_helmet_-_racing_helmet.glb",
+    id: "racing-a",
+    name: "Racing Helmet A",
+    modelPath: "/models/model-a.glb",
     color: "#DC143C",
+  },
+  {
+    id: "racing-b",
+    name: "Racing Helmet B",
+    modelPath: "/models/model-b.glb",
+    color: "#1E90FF",
   },
 ];
 
@@ -23,4 +29,3 @@ export const COLOR_PALETTE = [
   "#4169E1", // Royal blue (Rothmans style)
   "#FF6347", // Tomato red (Repsol inspired)
 ];
-

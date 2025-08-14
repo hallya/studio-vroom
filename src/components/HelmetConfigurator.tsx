@@ -33,8 +33,8 @@ export default function HelmetConfigurator() {
     <div className="helmet-configurator" style={getBackgroundStyle(backgroundMode)}>
       <Canvas
         camera={{
-          position: [0, 0, 4],
-          fov: 50,
+          position: [1, 0, 3],
+          fov: 60,
         }}
         gl={{
           antialias: true,
