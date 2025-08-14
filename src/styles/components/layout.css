@@ -551,7 +551,7 @@
 /* Large screens optimization */
 @media (min-width: 1200px) {
   .controls-container {
-    max-width: 380px;
+    max-width: 460px;
   }
 
   .main-control-panel {

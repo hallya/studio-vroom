@@ -19,7 +19,8 @@ export default function HelmetConfigurator() {
   const [selectedHelmet, setSelectedHelmet] = useState<Helmet>(HELMETS[0]);
   const [backgroundMode] = useState<BackgroundMode>("workshop");
   const [isUserInteracting, setIsUserInteracting] = useState<boolean>(false);
-  const [isCustomSectionExpanded, setIsCustomSectionExpanded] = useState<boolean>(false);
+  const [isCustomSectionExpanded, setIsCustomSectionExpanded] =
+    useState<boolean>(false);
   const controlsConfig = useResponsiveControls();
 
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function HelmetConfigurator() {
   };
 
   const handleCustomSectionKeyDown = (event: React.KeyboardEvent) => {
-    if (event.key === 'Enter' || event.key === ' ') {
+    if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
       toggleCustomSection();
     }
@@ -119,21 +120,38 @@ export default function HelmetConfigurator() {
         />
 
         <div className="main-control-panel elegant-panel">
-          <div className="main-title-section">
+          <header className="main-title-section" role="banner">
             <div className="brand-header">
-              <h1 className="main-title motogp-title">Studio Vroom</h1>
-              <p className="main-tagline elegant-font">Art on helmet</p>
-              <p className="main-description elegant-font">
+              <h1
+                className="main-title motogp-title"
+                aria-label="Studio Vroom - Custom Helmet Design Studio"
+              >
+                Studio Vroom
+              </h1>
+              <p
+                className="main-tagline elegant-font"
+                role="text"
+                aria-describedby="main-description"
+              >
+                Art on helmet
+              </p>
+              <p
+                id="main-description"
+                className="main-description elegant-font"
+                role="text"
+              >
                 Designs dedicated to racing
               </p>
             </div>
-          </div>
+          </header>
 
-          <section 
-            className={`custom-design-section ${isCustomSectionExpanded ? 'expanded' : 'collapsed'}`} 
+          <section
+            className={`custom-design-section ${
+              isCustomSectionExpanded ? "expanded" : "collapsed"
+            }`}
             aria-labelledby="custom-design-heading"
           >
-            <header 
+            <header
               className="custom-design-header"
               onClick={toggleCustomSection}
               onKeyDown={handleCustomSectionKeyDown}
@@ -143,42 +161,68 @@ export default function HelmetConfigurator() {
               aria-controls="custom-design-content"
             >
               <div className="custom-design-header-content">
-                <h2 id="custom-design-heading" className="custom-design-title elegant-font">
+                <h2
+                  id="custom-design-heading"
+                  className="custom-design-title elegant-font"
+                >
                   Exclusive Custom Helmet
                 </h2>
                 <p className="custom-design-subtitle elegant-font">
                   Your vision, our expertise
                 </p>
               </div>
-              <div className={`expand-indicator ${isCustomSectionExpanded ? 'expanded' : ''}`}>
+              <div
+                className={`expand-indicator ${
+                  isCustomSectionExpanded ? "expanded" : ""
+                }`}
+              >
                 <span className="expand-arrow">▼</span>
               </div>
             </header>
-            
-            <div 
+
+            <div
               id="custom-design-content"
-              className={`custom-design-content ${isCustomSectionExpanded ? 'expanded' : 'collapsed'}`}
+              className={`custom-design-content ${
+                isCustomSectionExpanded ? "expanded" : "collapsed"
+              }`}
               aria-hidden={!isCustomSectionExpanded}
             >
               <p className="custom-design-description elegant-font">
-                Create a <strong>unique design</strong> for your racing helmet. 
-                Our specialized workshop crafts <em>bespoke artwork</em> 
-                 exclusively for you.
+                Create a <strong>unique design</strong> for your racing helmet.
+                Our specialized workshop crafts <em>bespoke artwork</em>
+                exclusively for you.
               </p>
-              
-              <div className="pricing-info" itemScope itemType="https://schema.org/Offer">
+
+              <div
+                className="pricing-info"
+                itemScope
+                itemType="https://schema.org/Offer"
+              >
                 <span className="price-label elegant-font">Starting from</span>
                 <span className="price-amount" itemProp="price" content="1500">
                   €1,500
                 </span>
                 <meta itemProp="priceCurrency" content="EUR" />
-                <meta itemProp="availability" content="https://schema.org/InStock" />
+                <meta
+                  itemProp="availability"
+                  content="https://schema.org/InStock"
+                />
               </div>
-              
-              <div className="custom-design-features" role="list" aria-label="Custom design service benefits">
-                <span className="feature-item" role="listitem">✨ 100% unique design</span>
-                <span className="feature-item" role="listitem">🎨 Handcrafted artwork</span>
-                <span className="feature-item" role="listitem">🏁 Competition approved</span>
+
+              <div
+                className="custom-design-features"
+                role="list"
+                aria-label="Custom design service benefits"
+              >
+                <span className="feature-item" role="listitem">
+                  ✨ 100% unique design
+                </span>
+                <span className="feature-item" role="listitem">
+                  🎨 Handcrafted artwork
+                </span>
+                <span className="feature-item" role="listitem">
+                  🏁 Competition approved
+                </span>
               </div>
             </div>
           </section>
