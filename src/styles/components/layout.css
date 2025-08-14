@@ -304,7 +304,6 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 35vh;
     max-height: none;
     overflow-y: auto;
     border-radius: var(--radius-xl) var(--radius-xl) 0 0;
