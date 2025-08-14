@@ -9,7 +9,7 @@ import HelmetModel from "./3d/HelmetModel";
 import LoadingSpinner from "./ui/LoadingSpinner";
 import ModelSelector from "./ui/ModelSelector";
 
-import InfoPanel from "./ui/InfoPanel";
+import ContactIcons from "./ui/ContactIcons";
 
 import { getBackgroundStyle } from "../utils/styles";
 import { preloadHelmetModels } from "../utils/preloader";
@@ -119,7 +119,7 @@ export default function HelmetConfigurator() {
         </div>
       </div>
 
-      <InfoPanel />
+      <ContactIcons />
     </div>
   );
 }

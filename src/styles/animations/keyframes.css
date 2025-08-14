@@ -203,25 +203,4 @@
   }
 }
 
-/* ----------------------------------------------------------------------------
-   UTILITY ANIMATION CLASSES
-   ---------------------------------------------------------------------------- */
-.animate-spin {
-  animation: spin 1s linear infinite;
-}
-
-.animate-pulse {
-  animation: pulse 2s infinite;
-}
-
-.animate-fade-in {
-  animation: fadeIn var(--transition-normal) ease-out;
-}
-
-.animate-slide-in-bottom {
-  animation: slideInBottom 1s ease-out;
-}
-
-.animate-elegant-glow {
-  animation: elegantGlow 3s ease-in-out infinite;
-}
+/* Note: Utility animation classes removed - not currently used in the project */

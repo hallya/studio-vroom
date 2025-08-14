@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { EmailIcon, InstagramIcon, CopyIcon } from "../icons";
 
-export default function InfoPanel() {
+export default function ContactIcons() {
   const [isEmailCopying, setIsEmailCopying] = useState(false);
 
   const handleEmailClick = async () => {
@@ -22,7 +22,7 @@ export default function InfoPanel() {
   };
 
   return (
-    <div className="contact-icons-only">
+    <div className="contact-icons-panel">
       <div
         className={`contact-icon email ${isEmailCopying ? "copying" : ""}`}
         onClick={handleEmailClick}

@@ -30,17 +30,9 @@
 }
 
 
-.contact-icons {
-  display: grid;
-  grid-template-columns: auto auto;
-  align-items: center;
-  gap: var(--spacing-sm);
-  padding: 0;
-  margin: 0;
-  opacity: 1;
-}
 
-.contact-icons-only {
+
+.contact-icons-panel {
   position: fixed;
   top: var(--spacing-md);
   right: var(--spacing-md);
