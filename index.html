@@ -35,7 +35,7 @@
     />
     <meta
       property="og:image"
-      content="https://studio-vroom.vercel.app/bg-studio-vroom2.png"
+      content="https://studio-vroom.vercel.app/studio-vroom.jpg"
     />
     <meta property="og:image:width" content="1080" />
     <meta property="og:image:height" content="1080" />
@@ -55,9 +55,23 @@
     />
     <meta
       property="twitter:image"
-      content="https://studio-vroom.vercel.app/bg-studio-vroom2.png"
+      content="https://studio-vroom.vercel.app/studio-vroom.jpg"
     />
     <meta property="twitter:creator" content="@studio.vroom" />
+
+    <!-- WhatsApp / Telegram -->
+    <meta property="og:image:alt" content="Studio Vroom - Custom motorcycle helmet designs with retro MotoGP style" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:secure_url" content="https://studio-vroom.vercel.app/studio-vroom.jpg" />
+    
+    <!-- Instagram / LinkedIn -->
+    <meta property="article:author" content="Studio Vroom Vroom" />
+    <meta property="article:section" content="Art & Design" />
+    <meta property="article:tag" content="motorcycle,helmet,design,art,MotoGP,racing" />
+    
+    <!-- Rich Cards Support -->
+    <meta name="twitter:image:alt" content="Studio Vroom - Custom motorcycle helmet designs" />
+    <meta name="twitter:site" content="@studio.vroom" />
 
     <!-- Additional Meta Tags -->
     <meta name="theme-color" content="#DC143C" />
@@ -77,6 +91,27 @@
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json" />
+
+    <!-- Structured Data for Social Media -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Studio Vroom Vroom",
+      "description": "Art on helmet - Custom motorcycle helmet creations with elegant retro MotoGP style",
+      "url": "https://studio-vroom.vercel.app/",
+      "logo": "https://studio-vroom.vercel.app/studio-vroom.jpg",
+      "image": "https://studio-vroom.vercel.app/studio-vroom.jpg",
+      "sameAs": [
+        "https://www.instagram.com/studio.vroom/"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "martin@studiovroom.fr",
+        "contactType": "customer service"
+      }
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
