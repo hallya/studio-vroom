@@ -2,7 +2,8 @@
 
 An interactive 3D motorcycle helmet configurator with an elegant retro MotoGP aesthetic. Built with React Three Fiber for professional 3D visualization and smooth user interactions.
 
-**🌐 Live Demo**: [https://github.com/hallya/studio-vroom](https://github.com/hallya/studio-vroom)
+**🚀 Live Demo**: [https://studio-vroom.vercel.app/](https://studio-vroom.vercel.app/)  
+**📁 Repository**: [https://github.com/hallya/studio-vroom](https://github.com/hallya/studio-vroom)
 
 ## ✨ Features
 
