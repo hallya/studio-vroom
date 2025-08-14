@@ -1,14 +1,10 @@
-import { Suspense, useState, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Environment } from "@react-three/drei";
+import { useState, useEffect } from "react";
 
 import type { Helmet, BackgroundMode } from "../types";
 import { HELMETS } from "../constants/helmets";
 
-import HelmetModel from "./3d/HelmetModel";
-import LoadingSpinner from "./ui/LoadingSpinner";
-import ModelSelector from "./ui/ModelSelector";
-
+import Scene3D from "./3d/Scene3D";
+import ControlsContainer from "./ui/ControlsContainer";
 import ContactIcons from "./ui/ContactIcons";
 
 import { getBackgroundStyle } from "../utils/styles";
@@ -59,175 +55,22 @@ export default function HelmetConfigurator() {
       className="helmet-configurator"
       style={getBackgroundStyle(backgroundMode)}
     >
-      <Canvas
-        camera={{
-          position: [1, 0, 3],
-          fov: 60,
-        }}
-        gl={{
-          antialias: true,
-          alpha: true,
-          powerPreference: "high-performance",
-        }}
-        className="canvas-3d"
-      >
-        <Environment
-          preset={backgroundMode === "workshop" ? "warehouse" : "studio"}
-        />
+      <Scene3D
+        selectedHelmet={selectedHelmet}
+        backgroundMode={backgroundMode}
+        isUserInteracting={isUserInteracting}
+        controlsConfig={controlsConfig}
+        onInteractionStart={() => setIsUserInteracting(true)}
+        onInteractionChange={() => setIsUserInteracting(true)}
+      />
 
-        <ambientLight intensity={0.4} />
-        <directionalLight
-          position={[3, 3, 3]}
-          intensity={1.2}
-          castShadow
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-        />
-        <directionalLight
-          position={[-2, 2, 2]}
-          intensity={0.3}
-          color="#ffffff"
-        />
-
-        <OrbitControls
-          enablePan={controlsConfig.enablePan}
-          enableZoom={controlsConfig.enableZoom}
-          enableRotate={controlsConfig.enableRotate}
-          minDistance={controlsConfig.minDistance}
-          maxDistance={controlsConfig.maxDistance}
-          enableDamping={true}
-          dampingFactor={controlsConfig.dampingFactor}
-          rotateSpeed={controlsConfig.rotateSpeed}
-          zoomSpeed={controlsConfig.zoomSpeed}
-          touches={{ ONE: 0, TWO: 2 }}
-          onStart={() => setIsUserInteracting(true)}
-          onChange={() => setIsUserInteracting(true)}
-        />
-
-        <Suspense fallback={<LoadingSpinner />}>
-          <HelmetModel
-            helmet={selectedHelmet}
-            animationEnabled={true}
-            isUserInteracting={isUserInteracting}
-          />
-        </Suspense>
-      </Canvas>
-
-      <div className="controls-container">
-        <ModelSelector
-          selectedHelmet={selectedHelmet}
-          onHelmetChange={setSelectedHelmet}
-        />
-
-        <div className="main-control-panel elegant-panel">
-          <header className="main-title-section" role="banner">
-            <div className="brand-header">
-              <h1
-                className="main-title motogp-title"
-                aria-label="Studio Vroom - Custom Helmet Design Studio"
-              >
-                Studio Vroom
-              </h1>
-              <p
-                className="main-tagline elegant-font"
-                role="text"
-                aria-describedby="main-description"
-              >
-                Art on helmet
-              </p>
-              <p
-                id="main-description"
-                className="main-description elegant-font"
-                role="text"
-              >
-                Designs dedicated to racing
-              </p>
-            </div>
-          </header>
-
-          <section
-            className={`custom-design-section ${
-              isCustomSectionExpanded ? "expanded" : "collapsed"
-            }`}
-            aria-labelledby="custom-design-heading"
-          >
-            <header
-              className="custom-design-header"
-              onClick={toggleCustomSection}
-              onKeyDown={handleCustomSectionKeyDown}
-              role="button"
-              tabIndex={0}
-              aria-expanded={isCustomSectionExpanded}
-              aria-controls="custom-design-content"
-            >
-              <div className="custom-design-header-content">
-                <h2
-                  id="custom-design-heading"
-                  className="custom-design-title elegant-font"
-                >
-                  Exclusive Custom Helmet
-                </h2>
-                <p className="custom-design-subtitle elegant-font">
-                  Your vision, our expertise
-                </p>
-              </div>
-              <div
-                className={`expand-indicator ${
-                  isCustomSectionExpanded ? "expanded" : ""
-                }`}
-              >
-                <span className="expand-arrow">▼</span>
-              </div>
-            </header>
-
-            <div
-              id="custom-design-content"
-              className={`custom-design-content ${
-                isCustomSectionExpanded ? "expanded" : "collapsed"
-              }`}
-              aria-hidden={!isCustomSectionExpanded}
-            >
-              <p className="custom-design-description elegant-font">
-                Create a <strong>unique design</strong> for your racing helmet.
-                Our specialized workshop crafts <em>bespoke artwork</em>
-                exclusively for you.
-              </p>
-
-              <div
-                className="pricing-info"
-                itemScope
-                itemType="https://schema.org/Offer"
-              >
-                <span className="price-label elegant-font">Starting from</span>
-                <span className="price-amount" itemProp="price" content="1500">
-                  €1,500
-                </span>
-                <meta itemProp="priceCurrency" content="EUR" />
-                <meta
-                  itemProp="availability"
-                  content="https://schema.org/InStock"
-                />
-              </div>
-
-              <div
-                className="custom-design-features"
-                role="list"
-                aria-label="Custom design service benefits"
-              >
-                <span className="feature-item" role="listitem">
-                  ✨ 100% unique design
-                </span>
-                <span className="feature-item" role="listitem">
-                  🎨 Handcrafted artwork
-                </span>
-                <span className="feature-item" role="listitem">
-                  🏁 Competition approved
-                </span>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
+      <ControlsContainer
+        selectedHelmet={selectedHelmet}
+        onHelmetChange={setSelectedHelmet}
+        isCustomSectionExpanded={isCustomSectionExpanded}
+        onToggleCustomSection={toggleCustomSection}
+        onCustomSectionKeyDown={handleCustomSectionKeyDown}
+      />
 
       <ContactIcons />
     </div>
