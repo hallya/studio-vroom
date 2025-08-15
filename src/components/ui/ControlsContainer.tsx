@@ -2,6 +2,7 @@ import type { Helmet } from "../../types";
 import ModelSelector from "./ModelSelector";
 import BrandHeader from "./BrandHeader";
 import CustomDesignSection from "./CustomDesignSection";
+import { useIsDesktop } from "../../hooks/useIsDesktop";
 
 interface ControlsContainerProps {
   selectedHelmet: Helmet;
@@ -18,12 +19,16 @@ export default function ControlsContainer({
   onToggleCustomSection,
   onCustomSectionKeyDown,
 }: ControlsContainerProps) {
+  const isDesktop = useIsDesktop();
+
   return (
     <div className="controls-container">
-      <ModelSelector
-        selectedHelmet={selectedHelmet}
-        onHelmetChange={onHelmetChange}
-      />
+      {!isDesktop && (
+        <ModelSelector
+          selectedHelmet={selectedHelmet}
+          onHelmetChange={onHelmetChange}
+        />
+      )}
 
       <div className="main-control-panel elegant-panel">
         <BrandHeader />
