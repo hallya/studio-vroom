@@ -1,0 +1,204 @@
+/* HelmetWheel Component Styles */
+
+.helmet-wheel-container {
+  position: fixed;
+  bottom: -350px; /* Cache 3/4 de la roue (700px de diamètre) */
+  right: -350px;  /* Cache 3/4 de la roue */
+  width: 700px;
+  height: 700px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.helmet-wheel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  pointer-events: all;
+  cursor: pointer;
+  background: 
+    radial-gradient(
+      circle at center,
+      rgba(24, 28, 35, 0.95) 0%,
+      rgba(18, 21, 26, 0.9) 50%,
+      rgba(12, 14, 18, 0.8) 80%,
+      rgba(12, 14, 18, 0.4) 100%
+    );
+  border: 2px solid var(--white-20);
+  box-shadow: 
+    inset 0 0 50px rgba(0, 0, 0, 0.6),
+    0 0 40px rgba(255, 100, 50, 0.3),
+    0 0 80px rgba(255, 100, 50, 0.1);
+}
+
+.helmet-wheel:hover {
+  box-shadow: 
+    inset 0 0 50px rgba(0, 0, 0, 0.4),
+    0 0 50px rgba(255, 100, 50, 0.4),
+    0 0 100px rgba(255, 100, 50, 0.2);
+  border-color: var(--white-30);
+}
+
+.helmet-wheel-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  transform-origin: center center;
+  transition: all 0.3s ease;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+.helmet-wheel-item:hover {
+  transform: scale(1.1);
+  z-index: 5;
+}
+
+.helmet-wheel-item.selected {
+  transform: scale(1.15);
+  z-index: 10;
+}
+
+.helmet-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--surface-01);
+  border: 2px solid var(--white-10);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.helmet-wheel-item:hover .helmet-image-container {
+  border-color: var(--white-20);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.helmet-wheel-item.selected .helmet-image-container {
+  border-color: var(--accent-primary);
+  box-shadow: 
+    0 0 20px rgba(255, 100, 50, 0.4),
+    0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.helmet-image {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  filter: brightness(0.9);
+}
+
+.helmet-wheel-item:hover .helmet-image {
+  filter: brightness(1.1);
+}
+
+.helmet-wheel-item.selected .helmet-image {
+  filter: brightness(1.2) contrast(1.1);
+}
+
+.helmet-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 100, 50, 0.2) 0%,
+    rgba(255, 100, 50, 0.1) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.helmet-wheel-item.selected .helmet-glow {
+  opacity: 1;
+}
+
+/* Cercles décoratifs racing */
+.helmet-wheel::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 420px;  /* 210px radius * 2 pour équilibrer l'espace */
+  height: 420px;
+  margin-left: -210px;
+  margin-top: -210px;
+  border: 1px solid var(--white-10);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.helmet-wheel::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20%;
+  height: 20%;
+  margin-left: -10%;
+  margin-top: -10%;
+  background: 
+    radial-gradient(
+      circle,
+      var(--accent-primary) 0%,
+      transparent 70%
+    );
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.helmet-name-display {
+  position: absolute;
+  top: 45%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  width: 160px;
+  text-align: center;
+  pointer-events: none;
+  z-index: 20;
+  
+  font-family: var(--font-family-primary);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white-90);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  
+  padding: 8px 12px;
+  border-radius: 12px;
+  
+  transition: all 0.3s ease;
+}
+
+/* Animation d'entrée */
+.helmet-wheel-container {
+  animation: wheelSlideIn 1.5s ease-out 3.5s both;
+}
+
+@keyframes wheelSlideIn {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

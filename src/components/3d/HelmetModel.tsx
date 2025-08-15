@@ -17,6 +17,39 @@ export default function HelmetModel({
   const clonedScene = scene.clone();
 
   useEffect(() => {
+    if (helmet.color && clonedScene) {
+      clonedScene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          const materials = Array.isArray(child.material) ? child.material : [child.material];
+          
+          materials.forEach((material) => {
+            if (material instanceof THREE.MeshStandardMaterial) {
+              if (!material.userData.originalColor) {
+                material.userData.originalColor = material.color.clone();
+              }
+              material.color = new THREE.Color(helmet.color);
+              material.needsUpdate = true;
+            }
+          });
+        }
+      });
+    } else if (!helmet.color && clonedScene) {
+      clonedScene.traverse((child) => {
+        if (child instanceof THREE.Mesh) {
+          const materials = Array.isArray(child.material) ? child.material : [child.material];
+          
+          materials.forEach((material) => {
+            if (material instanceof THREE.MeshStandardMaterial && material.userData.originalColor) {
+              material.color = material.userData.originalColor.clone();
+              material.needsUpdate = true;
+            }
+          });
+        }
+      });
+    }
+  }, [helmet.color, clonedScene]);
+
+  useEffect(() => {
     if (animationEnabled && names.length > 0) {
       names.forEach((name) => {
         const action = actions[name];

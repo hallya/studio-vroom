@@ -6,10 +6,12 @@ import { HELMETS } from "../constants/helmets";
 import Scene3D from "./3d/Scene3D";
 import ControlsContainer from "./ui/ControlsContainer";
 import ContactIcons from "./ui/ContactIcons";
+import HelmetWheel from "./ui/HelmetWheel";
 
 import { getBackgroundStyle } from "../utils/styles";
 import { preloadHelmetModels } from "../utils/preloader";
 import { useResponsiveControls } from "../hooks/useResponsiveControls";
+import { useIsDesktop } from "../hooks/useIsDesktop";
 
 export default function HelmetConfigurator() {
   const [selectedHelmet, setSelectedHelmet] = useState<Helmet>(HELMETS[0]);
@@ -18,6 +20,7 @@ export default function HelmetConfigurator() {
   const [isCustomSectionExpanded, setIsCustomSectionExpanded] =
     useState<boolean>(false);
   const controlsConfig = useResponsiveControls();
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     preloadHelmetModels();
@@ -73,6 +76,14 @@ export default function HelmetConfigurator() {
       />
 
       <ContactIcons />
+
+      {isDesktop && (
+        <HelmetWheel
+          helmets={HELMETS}
+          selectedHelmet={selectedHelmet}
+          onHelmetChange={setSelectedHelmet}
+        />
+      )}
     </div>
   );
 }
